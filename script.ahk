@@ -8,7 +8,7 @@ if !dll {
 
 Loop 9 {
     idx := A_Index - 1
-    Hotkey("!" A_Index, makeGoFunc(idx))
+    Hotkey("+^" A_Index, makeGoFunc(idx))
     Hotkey("+!" A_Index, makeMoveFunc(idx))
 }
 
@@ -35,7 +35,7 @@ MoveWindowAndGo(idx) {
     }
     result := DllCall("VirtualDesktopAccessor.dll\MoveWindowToDesktopNumber", "Ptr", hwnd, "Int", idx)
     if result != 0 {
-        Sleep 100
+        Sleep 50
         DllCall("VirtualDesktopAccessor.dll\GoToDesktopNumber", "Int", idx)
     }
 }
