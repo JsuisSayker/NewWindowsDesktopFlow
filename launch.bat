@@ -41,18 +41,9 @@ copy /Y "%OUTPUT_EXE%" "%STARTUP_FOLDER%\"
 
 :: === Launch the script immediately ===
 echo Launching script...
-start "" "%STARTUP_FOLDER%\%OUTPUT_EXE%"
+start "" "%OUTPUT_EXE%"
 if errorlevel 1 (
     echo [ERROR] Failed to launch the script.
-    pause
-    exit /b 1
-)
-
-:: === CLEANUP ===
-echo Cleaning up...
-del /Q "%OUTPUT_EXE%"
-if errorlevel 1 (
-    echo [ERROR] Failed to delete the EXE file.
     pause
     exit /b 1
 )
